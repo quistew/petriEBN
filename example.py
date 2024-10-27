@@ -1,0 +1,38 @@
+import petriEBN.table as Table
+import petriEBN.expanded_graph as ExpandedGraph
+from petriEBN.phi import NodeConfigurations, ChainSupport, CycleAnalysis
+
+# initialize the network string and parameters
+network_string = 'X1 : (X2)\nX2 : (~X1)(~X3)\nX3 : (X1+X3)'
+nodelist = ['X1', 'X2', 'X3']
+pgi = 0
+
+# obtain network states and functions for the expanded graph
+node_states = Table.obtain_network_states(network_string)
+functions = Table.obtain_BCF_functions(network_string, pgi, node_states)
+EG_edges = Table.obtain_EG_edges(node_states, functions)
+
+# create an ExpandedGraph instance and get virtual and composite nodes
+extended_graph = ExpandedGraph(EG_edges)
+in_V_s, in_V_c = extended_graph.get_virtual_and_composite_nodes()
+
+# get all C0 configurations
+node_configurations = NodeConfigurations(in_V_c, nodelist)
+all_C0 = node_configurations.find_all_C0()
+
+# find support chains based on the C0 configurations
+chain_support = ChainSupport(in_V_s, in_V_c)
+support_chains = chain_support.find_support_chains(all_C0)
+
+# analyze cycles and fixed points from support chains
+cycle_analysis = CycleAnalysis(support_chains, nodelist)
+cycles, fixed_points = cycle_analysis.get_cycles_and_fixed_points()
+
+# classify cycles as full or partial
+full_cycles, partial_cycles = cycle_analysis.categorize_cycles(cycles)
+
+# Output results
+print("Cycles:", cycles)
+print("Fixed Points:", fixed_points)
+print("Full Cycles:", full_cycles)
+print("Partial Cycles:", partial_cycles)
