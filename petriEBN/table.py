@@ -1,7 +1,7 @@
 import itertools
 
 import DSGRN
-import dsgrn_support as Support
+import petriEBN.dsgrn_support as Support
 
 def get_input_vals(poly):
     toReturn = ""

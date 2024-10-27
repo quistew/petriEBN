@@ -1,7 +1,6 @@
 import re
 import networkx as nx
 import graphviz as gv
-import pydot
 import networkx as nx
 import MultiQM
 import table_conversion_for_EG as Convert
