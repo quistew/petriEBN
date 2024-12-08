@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "petriEBN"
+version = "0.1.0"
+description = "Representing expanded boolean networks as Petri nets to compute Morse Graphs of ODE models"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Elizabeth Andreas"},
+    {name = "Eli Quist", email = "eli.quist@student.montana.edu"},
+    {name = "Tomáš Gedeon"}
+]
+requires-python = ">=3.6"
+dependencies = [
+    "DSGRN",
+]
+
+[project.urls]
+Homepage = "https://github.com/quistew/petriEBN"
+
+[tool.setuptools.packages.find]
+where = ["."]
