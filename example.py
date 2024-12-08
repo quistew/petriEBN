@@ -3,10 +3,10 @@ from petriEBN.extended_graph import ExtendedGraph
 from petriEBN.extended_graph import obtain_BCF_functions, obtain_EG_edges
 from petriEBN.phi import NodeConfigurations, ChainSupport, CycleAnalysis
 
-# initialize the network string and parameters
-network_string = 'X1 : (X2)\nX2 : (~X1)(~X3)\nX3 : (X1+X3)'
-nodelist = ['X1', 'X2', 'X3']
-pgi = 10
+# initialize the network string and parameters (see https://dsgrn.readthedocs.io/en/latest/)
+network_string = 'X1 : (X2)\nX2 : (~X1)(~X3)\nX3 : (X1+X3)' # the string defining the network
+nodelist = ['X1', 'X2', 'X3'] # the list of nodes in the network
+pgi = 259 # the parameter graph index to use
 
 # obtain network states and functions for the expanded graph
 node_states = Table.obtain_network_states(network_string)
