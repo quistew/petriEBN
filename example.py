@@ -6,7 +6,7 @@ from petriEBN.phi import NodeConfigurations, ChainSupport, CycleAnalysis
 # initialize the network string and parameters
 network_string = 'X1 : (X2)\nX2 : (~X1)(~X3)\nX3 : (X1+X3)'
 nodelist = ['X1', 'X2', 'X3']
-pgi = 0
+pgi = 10
 
 # obtain network states and functions for the expanded graph
 node_states = Table.obtain_network_states(network_string)
