@@ -11,7 +11,8 @@ setup(
     url="https://github.com/quistew/petriEBN",
     packages=find_packages(),
     install_requires=[
-        # TODO (@quistew): list dependencies
+       "DSGRN",
+        
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

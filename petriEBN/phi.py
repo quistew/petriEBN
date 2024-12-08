@@ -3,7 +3,7 @@ from collections import Counter
 
 import DSGRN
 
-from petriEBN.expanded_graph import BOOL_AND, ExpandedGraph
+from petriEBN.extended_graph import BOOL_AND
 
 class NodeConfigurations:
     def __init__(self, composite_nodes, nodelist):

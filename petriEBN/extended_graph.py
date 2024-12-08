@@ -1,17 +1,14 @@
 import re
-import networkx as nx
-import graphviz as gv
-import networkx as nx
-import MultiQM
-import table_conversion_for_EG as Convert
-import table_from_dsgrn as Table
+
+from .MultiQM import qm
+from .table import obtain_network_edges, obtain_param_as_table
 
 BOOL_AND = 'AND'
 
-class ExpandedGraph:
+class ExtendedGraph:
     def __init__(self, edges):
         """
-        Initialize the ExpandedGraph with given edges.
+        Initialize the ExtendedGraph with given edges.
         
         Args:
             edges (dict): A dictionary where keys are nodes and values are lists of successor nodes.
@@ -119,8 +116,8 @@ def render_EG_as_png(edge_dict, filename):
       gv.render('dot', 'png', filename)
 
 def obtain_BCF_functions(network_string,pgi,node_states):
-    edges = Table.obtain_network_edges(network_string)
-    params = Convert.obtain_param_as_table(network_string, pgi)
+    edges = obtain_network_edges(network_string)
+    params = obtain_param_as_table(network_string, pgi)
     fullnodelist = list(node_states.keys())
     fullnodestates = list(node_states.values())
     functions = {}
@@ -145,7 +142,7 @@ def obtain_BCF_functions(network_string,pgi,node_states):
                         else:
                             function = function + ' OR '+comp_node
             if function != '':
-                BCF = MultiQM.qm(function, fullnodelist, fullnodestates)
+                BCF = qm(function, fullnodelist, fullnodestates)
                 if BCF != '1':
                     functions[node_state_combo] = BCF
                 else:
