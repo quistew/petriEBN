@@ -191,8 +191,3 @@ def obtain_param_as_table(network_string, pgi):
                 all_input += [list(i) for i in itertools.product(*specific_input)]
             params_as_input_outputs[n2] = all_input
     return params_as_input_outputs
-
-# TODO :: there is an error in our code, the LU decomp is in the order of 
-# the input poly and not the order of the nodelist.
-
-
