@@ -12,8 +12,8 @@ characteristics of the network.
 ## references
 
 This code accompanies the paper
-`E. Andreas, E. Quist, and T. Gedeon. Petri Net on Expanded Boolean Network Computes Morse 
-Graphs of ODE Models. (In Progress)` 
+`E. Andreas, E. Quist, and T. Gedeon. Petri Net on Expanded Boolean Network Computes 
+Dynamics of Monotone Boolean Models. (In Progress)` 
 
 This code relies on an (adapted) implementation of the Quine-McCluskey algorithm provided by 
 `X. Gan and R. Albert. General method to find the attractors of discrete dynamic models of
